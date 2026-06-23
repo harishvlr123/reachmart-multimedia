@@ -49,14 +49,15 @@ export const apps: ReachApp[] = [
     slug: "audio-player",
     title: "Reach Audio Player",
     shortTitle: "Audio Player",
-    description: "Winamp-style online audio player.",
+    description:
+      "Winamp-style modern audio player with playlist, skins, equalizer, bass boost and visualizer.",
     longDescription:
-      "Play your audio in a nostalgic, modern player designed for quick local playback and effortless controls.",
+      "Play local audio with a modern playlist, five skins, live equalizer controls, bass boost, favorites, and a responsive visualizer.",
     status: "Beta",
     href: "/audio-player",
     icon: "🎧",
     category: "Media Tools",
-    features: ["Local audio playback", "Playlist-ready interface", "Responsive player controls"],
+    features: ["Local audio playlists", "Five original skins", "Equalizer and visualizer"],
     accent: "from-violet-500 to-fuchsia-500",
   },
   {
