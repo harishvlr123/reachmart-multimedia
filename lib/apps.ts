@@ -47,17 +47,17 @@ export const apps: ReachApp[] = [
   },
   {
     slug: "audio-player",
-    title: "Reach Audio Player",
-    shortTitle: "Audio Player",
+    title: "Reach Player",
+    shortTitle: "Reach Player",
     description:
-      "Winamp-style modern audio player with playlist, skins, equalizer, bass boost and visualizer.",
+      "Premium local audio and video player with playlists, karaoke, skins, equalizer and visualizers.",
     longDescription:
-      "Play local audio with a modern playlist, five skins, live equalizer controls, bass boost, favorites, and a responsive visualizer.",
+      "Play local audio and video with multiple playlists, favorites, karaoke tools, visualizers, effects, subtitles, and installable PWA support.",
     status: "Beta",
     href: "/audio-player",
     icon: "🎧",
     category: "Media Tools",
-    features: ["Local audio playlists", "Five original skins", "Equalizer and visualizer"],
+    features: ["Mixed audio and video playlists", "Karaoke, effects and visualizers", "Installable browser app"],
     accent: "from-violet-500 to-fuchsia-500",
   },
   {
