@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { AppCard } from "@/components/app-card";
 import { HeroSection } from "@/components/hero-section";
-import { apps, featuredApps, getAppsByCategory } from "@/lib/apps";
+import {
+  apps,
+  featuredApps,
+  getAppsByCategory,
+  launchedProductApps,
+  reachVideoStudioDetails,
+  reachVideoStudioReleaseUrl,
+} from "@/lib/apps";
 
 export default function HomePage() {
   return (
@@ -13,6 +20,16 @@ export default function HomePage() {
         title="Featured Apps"
         description="The core tools and experiences across the ReachMart ecosystem."
         apps={featuredApps}
+      />
+
+      <ReachVideoStudioSection />
+
+      <AppSection
+        eyebrow="Downloads and live links"
+        title="Launched products"
+        description="Direct links for ReachVideoStudio, Tamil Astro, Matrimony, and ReachMarket YouTube."
+        apps={launchedProductApps}
+        muted
       />
 
       <AppSection
@@ -88,6 +105,74 @@ export default function HomePage() {
         </div>
       </section>
     </main>
+  );
+}
+
+function ReachVideoStudioSection() {
+  return (
+    <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+      <div className="relative overflow-hidden rounded-[2rem] border border-fuchsia-300/20 bg-slate-950 p-[1px] shadow-2xl shadow-fuchsia-950/30">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/45 via-violet-500/35 to-pink-500/45 opacity-70" />
+        <div className="absolute -left-24 top-1/4 h-72 w-72 rounded-full bg-blue-500/25 blur-3xl" />
+        <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-pink-500/25 blur-3xl" />
+        <div className="relative overflow-hidden rounded-[calc(2rem-1px)] bg-slate-950/92 px-6 py-8 backdrop-blur-xl sm:px-8 sm:py-10 lg:px-12">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl border border-white/15 bg-gradient-to-br from-blue-400 via-violet-400 to-pink-400 text-lg font-black text-white shadow-[0_0_36px_rgba(168,85,247,0.45)]">
+                  RV
+                </div>
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-[0.22em] text-pink-200">
+                    Windows Download
+                  </p>
+                  <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    ReachVideoStudio
+                  </h2>
+                </div>
+              </div>
+              <p className="mt-6 text-lg font-semibold text-cyan-100">
+                Premium Windows media player by ReachMarket
+              </p>
+              <p className="mt-4 max-w-2xl leading-7 text-slate-300">
+                Premium Windows video/audio player with playlist, fullscreen
+                playback, custom skins, custom background, and 3D Video Coming Soon.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={reachVideoStudioReleaseUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="button-primary bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500 shadow-[0_18px_50px_rgba(217,70,239,0.28)]"
+                >
+                  Download for Windows
+                </a>
+                <a
+                  href={reachVideoStudioReleaseUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="button-secondary"
+                >
+                  View GitHub Release
+                </a>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {reachVideoStudioDetails.map(([label, text]) => (
+                <div
+                  key={label}
+                  className="rounded-2xl border border-white/10 bg-white/[0.06] p-5 shadow-inner shadow-white/5"
+                >
+                  <p className="text-sm font-bold text-white">{label}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-400">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

@@ -14,9 +14,47 @@ export type ReachApp = {
   category: AppCategory;
   features: string[];
   accent: string;
+  ctaLabel?: string;
 };
 
+export const reachVideoStudioReleaseUrl =
+  "https://github.com/harishvlr123/reachvideostudio/releases/tag/v0.3.0";
+
+export const tamilAstroUrl = "https://tamilastro.reachmart.in";
+export const matrimonyUrl = "https://matrimony.reachmart.in";
+export const youtubeChannelUrl = "REPLACE_WITH_YOUTUBE_CHANNEL_LINK";
+
+export const reachVideoStudioDetails = [
+  ["Windows PC Installer", "Ready for Windows desktops"],
+  ["Version 0.3.0", "Current Windows release"],
+  ["Size about 314 MB", "GitHub Releases download"],
+  ["Android APK Coming Soon", "Mobile version coming later"],
+  ["3D Video Coming Soon", "Planned premium playback mode"],
+] as const;
+
 export const apps: ReachApp[] = [
+  {
+    slug: "reach-video-studio",
+    title: "ReachVideoStudio",
+    shortTitle: "VideoStudio",
+    description:
+      "Premium Windows video/audio player with playlist, fullscreen playback, custom skins, custom background, and 3D Video Coming Soon.",
+    longDescription:
+      "Premium Windows video/audio player with playlist, fullscreen playback, custom skins, custom background, and 3D Video Coming Soon.",
+    status: "Download",
+    href: reachVideoStudioReleaseUrl,
+    icon: "RVS",
+    category: "Media Tools",
+    features: [
+      "Windows PC Installer",
+      "Version 0.3.0",
+      "Size about 314 MB",
+      "Android APK Coming Soon",
+      "3D Video Coming Soon",
+    ],
+    accent: "from-blue-500 via-violet-500 to-pink-500",
+    ctaLabel: "Download for Windows",
+  },
   {
     slug: "marketplace",
     title: "ReachMart Marketplace",
@@ -146,35 +184,55 @@ export const apps: ReachApp[] = [
   },
   {
     slug: "matrimonial",
-    title: "Tamil Matrimony",
+    title: "ReachMart Matrimony",
     shortTitle: "Matrimony",
-    description: "Tamil marriage matching platform.",
+    description: "Community matrimony profile and matching service.",
     longDescription:
-      "A Tamil-focused matrimonial platform planned around clear profiles, family-friendly discovery, and meaningful matching.",
-    status: "Coming Soon",
-    href: "/matrimonial",
+      "Community matrimony profile and matching service for clear profiles, family-friendly discovery, and meaningful connections.",
+    status: "Live",
+    href: matrimonyUrl,
     icon: "💍",
     category: "Social & Matrimony",
-    features: ["Tamil community focus", "Detailed matching profiles", "Family-friendly experience"],
+    features: ["Community profiles", "Matching service", "Family-friendly experience"],
     accent: "from-amber-500 to-orange-500",
+    ctaLabel: "Open Matrimony",
   },
   {
     slug: "jathagam",
-    title: "Tamil Jathagam",
-    shortTitle: "Jathagam",
-    description: "Horoscope, astrology and jathagam reports.",
+    title: "Tamil Astro",
+    shortTitle: "Tamil Astro",
+    description: "Tamil astrology, jathagam, horoscope, matching, and reports.",
     longDescription:
-      "An upcoming Tamil astrology destination for clear horoscope insights, matching, and accessible jathagam reports.",
-    status: "Coming Soon",
-    href: "/jathagam",
+      "Tamil astrology, jathagam, horoscope, matching, and reports for people who want clear Tamil astrology tools online.",
+    status: "Live",
+    href: tamilAstroUrl,
     icon: "🔯",
     category: "Social & Matrimony",
     features: ["Tamil horoscope reports", "Jathagam matching", "Accessible astrology insights"],
     accent: "from-indigo-500 to-purple-500",
+    ctaLabel: "Open Tamil Astro",
+  },
+  {
+    slug: "reachmarket-youtube",
+    title: "ReachMarket YouTube",
+    shortTitle: "YouTube",
+    description: "Videos, tutorials, product updates, and ReachMarket apps.",
+    longDescription:
+      "Videos, tutorials, product updates, and ReachMarket apps in one ReachMarket video channel.",
+    status: "Live",
+    href: youtubeChannelUrl,
+    icon: "YT",
+    category: "Media Tools",
+    features: ["Videos and tutorials", "Product updates", "ReachMarket apps"],
+    accent: "from-red-500 to-pink-500",
+    ctaLabel: "Open YouTube",
   },
 ];
 
 export const featuredApps = apps.slice(0, 6);
+export const launchedProductApps = apps.filter((app) =>
+  ["reach-video-studio", "jathagam", "matrimonial", "reachmarket-youtube"].includes(app.slug),
+);
 
 export function getAppsByCategory(category: AppCategory) {
   return apps.filter((app) => app.category === category);

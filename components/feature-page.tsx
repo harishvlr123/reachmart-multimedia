@@ -19,11 +19,13 @@ export function FeaturePage({
   const href = ctaHref ?? (isComingSoon ? "/coming-soon" : app.href);
   const label =
     ctaLabel ??
+    app.ctaLabel ??
     (app.status === "Download"
       ? "Download for Windows"
       : isComingSoon
         ? "Get launch updates"
         : "Open tool");
+  const shouldUseExternalLink = external || !href.startsWith("/");
 
   return (
     <main className="relative overflow-hidden">
@@ -51,11 +53,11 @@ export function FeaturePage({
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
               {app.longDescription}
             </p>
-            {external ? (
+            {shouldUseExternalLink ? (
               <a
                 href={href}
-                target="_blank"
-                rel="noreferrer"
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noreferrer" : undefined}
                 className="button-primary mt-9"
               >
                 {label} <span aria-hidden="true">↗</span>
