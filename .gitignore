@@ -39,3 +39,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+dist/
+win-unpacked/
+next-dev.err.log
+next-dev.out.log
+*.log
+
+# Electron big build output
+*.blockmap
+*.asar
+dist/
+win-unpacked/
+next-dev.err.log
+next-dev.out.log
+*.log
+*.blockmap
+*.asar

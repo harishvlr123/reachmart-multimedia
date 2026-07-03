@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DonationButton } from "@/components/DonationButton";
 
 const productLinks = [
   ["All Apps", "/apps"],
@@ -32,6 +33,7 @@ export function Footer() {
             Shopping, media utilities, AI tools, communication, and Tamil-focused
             services brought together in one premium digital home.
           </p>
+          <DonationButton className="mt-6" />
         </div>
         <FooterColumn title="Products" links={productLinks} />
         <FooterColumn title="Explore" links={exploreLinks} />

@@ -2,11 +2,19 @@ import Link from "next/link";
 import type { ReachApp } from "@/lib/apps";
 import { StatusBadge } from "@/components/status-badge";
 
+type FeatureAction = {
+  label: string;
+  href: string;
+  external?: boolean;
+  variant?: "primary" | "secondary" | "small";
+};
+
 type FeaturePageProps = {
   app: ReachApp;
   ctaLabel?: string;
   ctaHref?: string;
   external?: boolean;
+  downloadActions?: FeatureAction[];
 };
 
 export function FeaturePage({
@@ -14,6 +22,7 @@ export function FeaturePage({
   ctaLabel,
   ctaHref,
   external = false,
+  downloadActions,
 }: FeaturePageProps) {
   const isComingSoon = app.status === "Coming Soon";
   const href = ctaHref ?? (isComingSoon ? "/coming-soon" : app.href);
@@ -34,7 +43,7 @@ export function FeaturePage({
       />
       <section className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
         <Link href="/apps" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white">
-          ← All apps
+          &lt;- All apps
         </Link>
         <div className="mt-12 grid items-center gap-14 lg:grid-cols-[1.08fr_.92fr]">
           <div>
@@ -53,18 +62,24 @@ export function FeaturePage({
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
               {app.longDescription}
             </p>
-            {shouldUseExternalLink ? (
+            {downloadActions ? (
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                {downloadActions.map((action) => (
+                  <FeatureActionLink key={action.label} action={action} />
+                ))}
+              </div>
+            ) : shouldUseExternalLink ? (
               <a
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noreferrer" : undefined}
                 className="button-primary mt-9"
               >
-                {label} <span aria-hidden="true">↗</span>
+                {label} <span aria-hidden="true">-&gt;</span>
               </a>
             ) : (
               <Link href={href} className="button-primary mt-9">
-                {label} <span aria-hidden="true">→</span>
+                {label} <span aria-hidden="true">-&gt;</span>
               </Link>
             )}
           </div>
@@ -96,5 +111,33 @@ export function FeaturePage({
         </div>
       </section>
     </main>
+  );
+}
+
+function FeatureActionLink({ action }: { action: FeatureAction }) {
+  const className =
+    action.variant === "small"
+      ? "inline-flex min-h-12 items-center justify-center rounded-xl px-4 py-3 text-sm font-bold text-cyan-200 transition hover:bg-cyan-300/10 hover:text-white"
+      : action.variant === "secondary"
+        ? "button-secondary"
+        : "button-primary";
+
+  if (action.external || !action.href.startsWith("/")) {
+    return (
+      <a
+        href={action.href}
+        target={action.href.startsWith("http") ? "_blank" : undefined}
+        rel={action.href.startsWith("http") ? "noreferrer" : undefined}
+        className={className}
+      >
+        {action.label}
+      </a>
+    );
+  }
+
+  return (
+    <a href={action.href} className={className} download>
+      {action.label}
+    </a>
   );
 }

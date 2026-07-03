@@ -25,10 +25,10 @@ export const matrimonyUrl = "https://matrimony.reachmart.in";
 export const youtubeChannelUrl = "REPLACE_WITH_YOUTUBE_CHANNEL_LINK";
 
 export const reachVideoStudioDetails = [
-  ["Windows PC Installer", "Ready for Windows desktops"],
-  ["Version 0.3.0", "Current Windows release"],
-  ["Size about 314 MB", "GitHub Releases download"],
-  ["Android APK Coming Soon", "Mobile version coming later"],
+  ["Windows PC Installer", "/downloads/ReachVideoPlayer.exe"],
+  ["Android APK", "/downloads/ReachVideoPlayer.apk"],
+  ["Source code", "Available separately on GitHub"],
+  ["Desktop and mobile", "Download choices are shown before source code"],
   ["3D Video Coming Soon", "Planned premium playback mode"],
 ] as const;
 
@@ -42,18 +42,17 @@ export const apps: ReachApp[] = [
     longDescription:
       "Premium Windows video/audio player with playlist, fullscreen playback, custom skins, custom background, and 3D Video Coming Soon.",
     status: "Download",
-    href: reachVideoStudioReleaseUrl,
+    href: "/video-player",
     icon: "RVS",
     category: "Media Tools",
     features: [
-      "Windows PC Installer",
-      "Version 0.3.0",
-      "Size about 314 MB",
-      "Android APK Coming Soon",
+      "Windows PC EXE download",
+      "Android APK download",
+      "Source code link separated",
       "3D Video Coming Soon",
     ],
     accent: "from-blue-500 via-violet-500 to-pink-500",
-    ctaLabel: "Download for Windows",
+    ctaLabel: "Download options",
   },
   {
     slug: "marketplace",
@@ -80,22 +79,22 @@ export const apps: ReachApp[] = [
     href: "/browser",
     icon: "🌐",
     category: "Media Tools",
-    features: ["Fast Windows browsing", "Integrated smart tools", "Clean, focused interface"],
+    features: ["Windows EXE download", "Android APK download", "Clean, focused interface"],
     accent: "from-cyan-500 to-blue-500",
   },
   {
     slug: "audio-player",
-    title: "Reach Player",
-    shortTitle: "Reach Player",
+    title: "Reach Audio Player",
+    shortTitle: "Audio Player",
     description:
       "Premium local audio and video player with playlists, karaoke, skins, equalizer and visualizers.",
     longDescription:
       "Play local audio and video with multiple playlists, favorites, karaoke tools, visualizers, effects, subtitles, and installable PWA support.",
-    status: "Beta",
+    status: "Download",
     href: "/audio-player",
     icon: "🎧",
     category: "Media Tools",
-    features: ["Mixed audio and video playlists", "Karaoke, effects and visualizers", "Installable browser app"],
+    features: ["Windows EXE download", "Android APK download", "Karaoke, effects and visualizers"],
     accent: "from-violet-500 to-fuchsia-500",
   },
   {
@@ -105,11 +104,11 @@ export const apps: ReachApp[] = [
     description: "VLC-style online video player.",
     longDescription:
       "A capable browser-based video player experience with familiar controls and a polished distraction-free layout.",
-    status: "Beta",
+    status: "Download",
     href: "/video-player",
     icon: "🎬",
     category: "Media Tools",
-    features: ["Local video playback", "Familiar media controls", "Full-screen friendly design"],
+    features: ["Windows EXE download", "Android APK download", "Source code link separated"],
     accent: "from-orange-500 to-rose-500",
   },
   {
@@ -156,16 +155,16 @@ export const apps: ReachApp[] = [
   },
   {
     slug: "chat",
-    title: "Reach Chat",
+    title: "Reach Timepass Chat",
     shortTitle: "Reach Chat",
-    description: "Telegram-style secure chat app.",
+    description: "Timepass web chat with Android and PC app downloads.",
     longDescription:
-      "An upcoming communication space for direct conversations, groups, and a focused messaging experience.",
-    status: "Coming Soon",
+      "Open Timepass web chat, or install the Reach Chat Android and Windows apps from the download hub.",
+    status: "Download",
     href: "/chat",
     icon: "💬",
     category: "Social & Matrimony",
-    features: ["Direct conversations", "Group-ready design", "Privacy-focused direction"],
+    features: ["Open web chat", "Android APK download", "Windows PC app download"],
     accent: "from-blue-500 to-violet-500",
   },
   {
@@ -231,7 +230,7 @@ export const apps: ReachApp[] = [
 
 export const featuredApps = apps.slice(0, 6);
 export const launchedProductApps = apps.filter((app) =>
-  ["reach-video-studio", "jathagam", "matrimonial", "reachmarket-youtube"].includes(app.slug),
+  ["reach-video-studio", "browser", "audio-player", "video-player", "chat", "jathagam", "matrimonial"].includes(app.slug),
 );
 
 export function getAppsByCategory(category: AppCategory) {

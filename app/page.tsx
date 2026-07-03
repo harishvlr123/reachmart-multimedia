@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AppCard } from "@/components/app-card";
+import { DownloadHubSection } from "@/components/download-hub";
 import { HeroSection } from "@/components/hero-section";
 import {
   apps,
@@ -14,6 +15,8 @@ export default function HomePage() {
   return (
     <main>
       <HeroSection />
+
+      <DownloadHubSection />
 
       <AppSection
         eyebrow="Start here"
@@ -91,14 +94,33 @@ export default function HomePage() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
-              ["✦", "One connected home", "Move between useful products without navigating a maze of unrelated websites."],
-              ["⚡", "Focused experiences", "Each product is designed around a clear job, with a consistent ReachMart interface."],
-              ["◈", "Built to grow", "The portal is ready to expand as new media, AI, social, and marketplace tools launch."],
+              [
+                "✦",
+                "One connected home",
+                "Move between useful products without navigating a maze of unrelated websites.",
+              ],
+              [
+                "⚡",
+                "Focused experiences",
+                "Each product is designed around a clear job, with a consistent ReachMart interface.",
+              ],
+              [
+                "◈",
+                "Built to grow",
+                "The portal is ready to expand as new media, AI, social, and marketplace tools launch.",
+              ],
             ].map(([icon, title, text]) => (
-              <div key={title} className="rounded-3xl border border-white/8 bg-white/[0.035] p-7">
+              <div
+                key={title}
+                className="rounded-3xl border border-white/8 bg-white/[0.035] p-7"
+              >
                 <span className="text-2xl text-cyan-300">{icon}</span>
-                <h3 className="mt-5 text-lg font-semibold text-white">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-500">{text}</p>
+                <h3 className="mt-5 text-lg font-semibold text-white">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-500">
+                  {text}
+                </p>
               </div>
             ))}
           </div>
@@ -115,6 +137,7 @@ function ReachVideoStudioSection() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/45 via-violet-500/35 to-pink-500/45 opacity-70" />
         <div className="absolute -left-24 top-1/4 h-72 w-72 rounded-full bg-blue-500/25 blur-3xl" />
         <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-pink-500/25 blur-3xl" />
+
         <div className="relative overflow-hidden rounded-[calc(2rem-1px)] bg-slate-950/92 px-6 py-8 backdrop-blur-xl sm:px-8 sm:py-10 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
@@ -122,38 +145,51 @@ function ReachVideoStudioSection() {
                 <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl border border-white/15 bg-gradient-to-br from-blue-400 via-violet-400 to-pink-400 text-lg font-black text-white shadow-[0_0_36px_rgba(168,85,247,0.45)]">
                   RV
                 </div>
+
                 <div>
                   <p className="text-sm font-bold uppercase tracking-[0.22em] text-pink-200">
-                    Windows Download
+                    PC & Android Download
                   </p>
                   <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                    ReachVideoStudio
+                    ReachVideo Studio
                   </h2>
                 </div>
               </div>
+
               <p className="mt-6 text-lg font-semibold text-cyan-100">
-                Premium Windows media player by ReachMarket
+                Premium video/audio player and AI video creator by ReachMarket
               </p>
+
               <p className="mt-4 max-w-2xl leading-7 text-slate-300">
-                Premium Windows video/audio player with playlist, fullscreen
-                playback, custom skins, custom background, and 3D Video Coming Soon.
+                ReachVideo Studio brings video playback, audio playback,
+                playlist, fullscreen support, custom skins, custom background,
+                and Android WebView access in one ReachMart app.
               </p>
+
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href={reachVideoStudioReleaseUrl}
-                  target="_blank"
-                  rel="noreferrer"
+                  href="/downloads/ReachVideoStudioSetup.exe"
                   className="button-primary bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500 shadow-[0_18px_50px_rgba(217,70,239,0.28)]"
+                  download
                 >
-                  Download for Windows
+                  Download PC / Windows EXE
                 </a>
+
+                <a
+                  href="/downloads/ReachVideoStudio.apk"
+                  className="button-secondary"
+                  download
+                >
+                  Download ReachVideo Studio APK
+                </a>
+
                 <a
                   href={reachVideoStudioReleaseUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="button-secondary"
+                  className="inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-bold text-cyan-200 transition hover:bg-cyan-300/10 hover:text-white"
                 >
-                  View GitHub Release
+                  Source Code
                 </a>
               </div>
             </div>
@@ -165,7 +201,9 @@ function ReachVideoStudioSection() {
                   className="rounded-2xl border border-white/10 bg-white/[0.06] p-5 shadow-inner shadow-white/5"
                 >
                   <p className="text-sm font-bold text-white">{label}</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">{text}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-400">
+                    {text}
+                  </p>
                 </div>
               ))}
             </div>
@@ -192,20 +230,33 @@ function AppSection({
   id?: string;
 }) {
   return (
-    <section id={id} className={muted ? "border-y border-white/8 bg-white/[0.022]" : ""}>
+    <section
+      id={id}
+      className={muted ? "border-y border-white/8 bg-white/[0.022]" : ""}
+    >
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-cyan-300">{eyebrow}</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">{title}</h2>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-cyan-300">
+              {eyebrow}
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              {title}
+            </h2>
             <p className="mt-3 max-w-2xl text-slate-400">{description}</p>
           </div>
-          <Link href="/apps" className="text-sm font-semibold text-cyan-300 hover:text-cyan-200">
+          <Link
+            href="/apps"
+            className="text-sm font-semibold text-cyan-300 hover:text-cyan-200"
+          >
             View all apps →
           </Link>
         </div>
+
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {sectionApps.map((app) => <AppCard key={app.slug} app={app} />)}
+          {sectionApps.map((app) => (
+            <AppCard key={app.slug} app={app} />
+          ))}
         </div>
       </div>
     </section>

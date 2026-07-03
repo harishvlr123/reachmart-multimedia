@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { DonationButton } from "@/components/DonationButton";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -48,7 +49,8 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <DonationButton />
           <Link
             href="/post-ad"
             className="rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-cyan-100"
@@ -90,6 +92,7 @@ export function Navbar() {
             >
               Post Free Ad
             </Link>
+            <DonationButton className="mt-1" />
           </div>
         </div>
       )}
