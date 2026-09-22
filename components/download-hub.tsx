@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   matrimonyUrl,
-  reachVideoStudioReleaseUrl,
   tamilAstroUrl,
 } from "@/lib/apps";
 
@@ -22,6 +21,16 @@ type DownloadProduct = {
 
 const downloadProducts: DownloadProduct[] = [
   {
+    title: "ReachVideo Studio",
+    eyebrow: "Desktop & mobile",
+    description: "Premium video and audio playback for Windows and Android.",
+    accent: "from-blue-400 via-violet-500 to-pink-500",
+    actions: [
+      { label: "Download Windows EXE", href: "/downloads/ReachVideoStudioSetup.exe" },
+      { label: "Download Android APK", href: "/downloads/ReachVideoStudio.apk", variant: "secondary" },
+    ],
+  },
+  {
     title: "ReachBrowser",
     eyebrow: "Browser",
     description: "A clean ReachMart browser for Windows and Android.",
@@ -34,38 +43,28 @@ const downloadProducts: DownloadProduct[] = [
   {
     title: "Reach Audio Player",
     eyebrow: "Audio",
-    description: "Premium music playback, playlists, skins, equalizer, and visual tools.",
+    description: "Use the browser player for playlists, skins, equalizer, and visual tools.",
     accent: "from-violet-400 to-fuchsia-500",
     actions: [
-      { label: "Download PC / Windows EXE", href: "/downloads/ReachAudioPlayer.exe" },
-      { label: "Download Android APK", href: "/downloads/ReachAudioPlayer.apk", variant: "secondary" },
+      { label: "Open audio player", href: "/audio-player" },
     ],
   },
   {
     title: "Reach Video Player",
     eyebrow: "Video",
-    description: "Modern video player downloads with source code kept separate.",
+    description: "Play local video and audio files directly in your browser.",
     accent: "from-orange-400 to-rose-500",
     actions: [
-      { label: "Download PC / Windows EXE", href: "/downloads/ReachVideoPlayer.exe" },
-      { label: "Download Android APK", href: "/downloads/ReachVideoPlayer.apk", variant: "secondary" },
-      {
-        label: "Source Code",
-        href: reachVideoStudioReleaseUrl,
-        variant: "small",
-        external: true,
-      },
+      { label: "Open video player", href: "/video-player" },
     ],
   },
   {
     title: "Reach Timepass Chat",
     eyebrow: "Chat",
-    description: "Open the web chat or install Reach Chat on Android and Windows.",
+    description: "The ReachMart web chat experience is being prepared.",
     accent: "from-emerald-400 to-cyan-500",
     actions: [
-      { label: "Open Web Chat", href: "https://timepass.reachmart.in", external: true },
-      { label: "Download Android APK", href: "/downloads/ReachChat.apk", variant: "secondary" },
-      { label: "Download PC App", href: "/downloads/ReachChat.exe", variant: "secondary" },
+      { label: "Coming soon", href: "/coming-soon", variant: "secondary" },
     ],
   },
 ];

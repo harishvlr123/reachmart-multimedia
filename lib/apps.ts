@@ -17,18 +17,13 @@ export type ReachApp = {
   ctaLabel?: string;
 };
 
-export const reachVideoStudioReleaseUrl =
-  "https://github.com/harishvlr123/reachvideostudio/releases/tag/v0.3.0";
-
 export const tamilAstroUrl = "https://tamilastro.reachmart.in";
 export const matrimonyUrl = "https://matrimony.reachmart.in";
-export const youtubeChannelUrl = "REPLACE_WITH_YOUTUBE_CHANNEL_LINK";
 
 export const reachVideoStudioDetails = [
-  ["Windows PC Installer", "/downloads/ReachVideoPlayer.exe"],
-  ["Android APK", "/downloads/ReachVideoPlayer.apk"],
-  ["Source code", "Available separately on GitHub"],
-  ["Desktop and mobile", "Download choices are shown before source code"],
+  ["Windows PC Installer", "/downloads/ReachVideoStudioSetup.exe"],
+  ["Android APK", "/downloads/ReachVideoStudio.apk"],
+  ["Desktop and mobile", "Install ReachVideo Studio on Windows or Android"],
   ["3D Video Coming Soon", "Planned premium playback mode"],
 ] as const;
 
@@ -42,13 +37,12 @@ export const apps: ReachApp[] = [
     longDescription:
       "Premium Windows video/audio player with playlist, fullscreen playback, custom skins, custom background, and 3D Video Coming Soon.",
     status: "Download",
-    href: "/video-player",
+    href: "/downloads",
     icon: "RVS",
     category: "Media Tools",
     features: [
       "Windows PC EXE download",
       "Android APK download",
-      "Source code link separated",
       "3D Video Coming Soon",
     ],
     accent: "from-blue-500 via-violet-500 to-pink-500",
@@ -90,11 +84,11 @@ export const apps: ReachApp[] = [
       "Premium local audio and video player with playlists, karaoke, skins, equalizer and visualizers.",
     longDescription:
       "Play local audio and video with multiple playlists, favorites, karaoke tools, visualizers, effects, subtitles, and installable PWA support.",
-    status: "Download",
+    status: "Live",
     href: "/audio-player",
     icon: "🎧",
     category: "Media Tools",
-    features: ["Windows EXE download", "Android APK download", "Karaoke, effects and visualizers"],
+    features: ["Browser playback", "Karaoke, effects and visualizers", "Installable PWA support"],
     accent: "from-violet-500 to-fuchsia-500",
   },
   {
@@ -104,11 +98,11 @@ export const apps: ReachApp[] = [
     description: "VLC-style online video player.",
     longDescription:
       "A capable browser-based video player experience with familiar controls and a polished distraction-free layout.",
-    status: "Download",
+    status: "Live",
     href: "/video-player",
     icon: "🎬",
     category: "Media Tools",
-    features: ["Windows EXE download", "Android APK download", "Source code link separated"],
+    features: ["Browser playback", "Local video and audio files", "Familiar player controls"],
     accent: "from-orange-500 to-rose-500",
   },
   {
@@ -157,15 +151,16 @@ export const apps: ReachApp[] = [
     slug: "chat",
     title: "Reach Timepass Chat",
     shortTitle: "Reach Chat",
-    description: "Timepass web chat with Android and PC app downloads.",
+    description: "A focused web chat experience coming soon.",
     longDescription:
-      "Open Timepass web chat, or install the Reach Chat Android and Windows apps from the download hub.",
-    status: "Download",
-    href: "/chat",
+      "A focused web chat experience is being prepared for the ReachMart ecosystem.",
+    status: "Coming Soon",
+    href: "/coming-soon",
     icon: "💬",
     category: "Social & Matrimony",
-    features: ["Open web chat", "Android APK download", "Windows PC app download"],
+    features: ["Web chat experience", "Focused conversation tools"],
     accent: "from-blue-500 to-violet-500",
+    ctaLabel: "Coming Soon",
   },
   {
     slug: "dating",
@@ -218,13 +213,13 @@ export const apps: ReachApp[] = [
     description: "Videos, tutorials, product updates, and ReachMarket apps.",
     longDescription:
       "Videos, tutorials, product updates, and ReachMarket apps in one ReachMarket video channel.",
-    status: "Live",
-    href: youtubeChannelUrl,
+    status: "Coming Soon",
+    href: "/coming-soon",
     icon: "YT",
     category: "Media Tools",
     features: ["Videos and tutorials", "Product updates", "ReachMarket apps"],
     accent: "from-red-500 to-pink-500",
-    ctaLabel: "Open YouTube",
+    ctaLabel: "Coming Soon",
   },
 ];
 

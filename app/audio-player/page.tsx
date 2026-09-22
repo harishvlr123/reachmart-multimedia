@@ -20,16 +20,8 @@ export default function AudioPlayerPage() {
                 Reach Audio Player
               </p>
               <h1 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Download the player or use the web version below.
+                Play your files in the browser.
               </h1>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="/downloads/ReachAudioPlayer.exe" className="button-primary" download>
-                Download PC / Windows EXE
-              </a>
-              <a href="/downloads/ReachAudioPlayer.apk" className="button-secondary" download>
-                Download Android APK
-              </a>
             </div>
           </div>
         </div>

@@ -8,7 +8,6 @@ import {
   getAppsByCategory,
   launchedProductApps,
   reachVideoStudioDetails,
-  reachVideoStudioReleaseUrl,
 } from "@/lib/apps";
 
 export default function HomePage() {
@@ -183,14 +182,6 @@ function ReachVideoStudioSection() {
                   Download ReachVideo Studio APK
                 </a>
 
-                <a
-                  href={reachVideoStudioReleaseUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-bold text-cyan-200 transition hover:bg-cyan-300/10 hover:text-white"
-                >
-                  Source Code
-                </a>
               </div>
             </div>
 
