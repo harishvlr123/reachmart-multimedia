@@ -32,7 +32,7 @@
   },
   "build": {
     "appId": "in.reachmart.reachaudio",
-    "productName": "ReachAudio Player",
+    "productName": "Reach Video Studio",
     "win": {
       "target": "nsis"
     }

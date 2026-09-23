@@ -50,21 +50,23 @@ const downloadProducts: DownloadProduct[] = [
     ],
   },
   {
-    title: "Reach Video Player",
+    title: "Reach Video Studio",
     eyebrow: "Video",
-    description: "Play local video and audio files directly in your browser.",
+    description: "Play local video and audio files in your browser, or download Reach Video Studio.",
     accent: "from-orange-400 to-rose-500",
     actions: [
-      { label: "Open video player", href: "/video-player" },
+      { label: "Open Reach Video Studio", href: "/video-player" },
+      { label: "Download Windows EXE", href: "/downloads/ReachVideoStudioSetup.exe", variant: "secondary" },
+      { label: "Download Android APK", href: "/downloads/ReachVideoStudio.apk", variant: "secondary" },
     ],
   },
   {
     title: "Reach Timepass Chat",
     eyebrow: "Chat",
-    description: "The ReachMart web chat experience is being prepared.",
+    description: "Open the Timepass page from this website while the separate service is restored.",
     accent: "from-emerald-400 to-cyan-500",
     actions: [
-      { label: "Coming soon", href: "/coming-soon", variant: "secondary" },
+      { label: "Open Timepass", href: "/chat", variant: "secondary" },
     ],
   },
 ];

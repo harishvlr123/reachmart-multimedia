@@ -5,7 +5,7 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1280,
     height: 800,
-    title: "ReachAudio Player",
+    title: "Reach Video Studio",
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true

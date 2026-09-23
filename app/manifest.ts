@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Reach Player",
-    short_name: "Reach Player",
-    description: "Local audio and video player from ReachMart Multimedia.",
+    name: "Reach Video Studio",
+    short_name: "Video Studio",
+    description: "Local audio and video studio from ReachMart Multimedia.",
     start_url: "/audio-player",
     scope: "/",
     display: "standalone",
